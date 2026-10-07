@@ -1,0 +1,128 @@
+[submodule "benchmarks/amd-u26-301"]
+	path = benchmarks/amd-u26-301
+	url = ../301-sys-bench-amd-rocm-stack-validation-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-302"]
+	path = benchmarks/amd-u26-302
+	url = ../302-sys-bench-amd-rocm-health-validation-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-303"]
+	path = benchmarks/amd-u26-303
+	url = ../303-sys-bench-amd-system-stress-stability-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-304"]
+	path = benchmarks/amd-u26-304
+	url = ../304-gpu-bench-amd-sdc-ecc-integrity-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-305"]
+	path = benchmarks/amd-u26-305
+	url = ../305-gpu-bench-amd-pytorch-tensor-correctness-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-306"]
+	path = benchmarks/amd-u26-306
+	url = ../306-sys-bench-amd-fio-nvme-sweep-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-307"]
+	path = benchmarks/amd-u26-307
+	url = ../307-sys-bench-amd-stream-ddr5-bandwidth-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-308"]
+	path = benchmarks/amd-u26-308
+	url = ../308-sys-bench-amd-iperf3-network-performance-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-309"]
+	path = benchmarks/amd-u26-309
+	url = ../309-sys-bench-amd-multichase-numa-latency-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-310"]
+	path = benchmarks/amd-u26-310
+	url = ../310-sys-bench-amd-numa-cache-performance-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-311"]
+	path = benchmarks/amd-u26-311
+	url = ../311-sys-bench-amd-linux-perf-pmu-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-312"]
+	path = benchmarks/amd-u26-312
+	url = ../312-sys-bench-amd-lmbench-microbench-suite-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-313"]
+	path = benchmarks/amd-u26-313
+	url = ../313-sys-bench-amd-gups-random-memory-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-314"]
+	path = benchmarks/amd-u26-314
+	url = ../314-gpu-bench-amd-hipmemcpy-transfer-bandwidth-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-315"]
+	path = benchmarks/amd-u26-315
+	url = ../315-gpu-bench-amd-babelstream-hbm-bandwidth-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-316"]
+	path = benchmarks/amd-u26-316
+	url = ../316-gpu-bench-amd-rccl-bandwidth-test-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-317"]
+	path = benchmarks/amd-u26-317
+	url = ../317-gpu-bench-amd-gemm-rocblas-micro-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-318"]
+	path = benchmarks/amd-u26-318
+	url = ../318-gpu-bench-amd-miopen-convolution-micro-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-319"]
+	path = benchmarks/amd-u26-319
+	url = ../319-gpu-bench-amd-torch-micro-suite-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-320"]
+	path = benchmarks/amd-u26-320
+	url = ../320-gpu-bench-amd-linpack-rochpl-fp64-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-321"]
+	path = benchmarks/amd-u26-321
+	url = ../321-gpu-bench-amd-resnet50-pytorch-training-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-322"]
+	path = benchmarks/amd-u26-322
+	url = ../322-gpu-bench-amd-resnet50-pytorch-inference-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-323"]
+	path = benchmarks/amd-u26-323
+	url = ../323-gpu-bench-amd-bert-base-inference-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-324"]
+	path = benchmarks/amd-u26-324
+	url = ../324-gpu-bench-amd-sdxl-diffusers-latency-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-325"]
+	path = benchmarks/amd-u26-325
+	url = ../325-gpu-bench-amd-distilbert-hf-classification-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-326"]
+	path = benchmarks/amd-u26-326
+	url = ../326-gpu-bench-amd-jax-xla-forwardpass-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-327"]
+	path = benchmarks/amd-u26-327
+	url = ../327-gpu-bench-amd-vllm-kvcache-stress-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-328"]
+	path = benchmarks/amd-u26-328
+	url = ../328-gpu-bench-amd-vllm-throughput-latency-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-329"]
+	path = benchmarks/amd-u26-329
+	url = ../329-gpu-bench-amd-vllm-mistral-rocm-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-330"]
+	path = benchmarks/amd-u26-330
+	url = ../330-gpu-bench-amd-sglang-prompt-response-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-331"]
+	path = benchmarks/amd-u26-331
+	url = ../331-gpu-bench-amd-sglang-serving-latency-ubu2604.git
+	branch = main
+[submodule "benchmarks/amd-u26-332"]
+	path = benchmarks/amd-u26-332
+	url = ../332-gpu-bench-amd-rag-faiss-end2end-ubu2604.git
+	branch = main
