@@ -1,7 +1,7 @@
 # AMD ROCm - Ubuntu 26.04 benchmark bundle
 
 32 system and GPU benchmarks for AMD GPU machines running Ubuntu 26.04,
-each pinned to its tested v1.0.14 release.
+each pinned to its tested v1.0.15 release.
 
 Use this bundle only on that platform. The others have their own bundle:
 [AMD 24.04](https://github.com/garys-gpu-benchmarks/bundle-amd-ubuntu-2404) ·
@@ -13,10 +13,13 @@ Use this bundle only on that platform. The others have their own bundle:
 
 - A freshly installed **Ubuntu 26.04** machine with AMD GPUs, connected to the internet.
 - **root** access: log in as root, or run `sudo -i` first.
-- Plenty of free disk space. Each benchmark installs its own software the first
-  time it runs, and checks for at least 20 GiB free before it does. The AI
-  benchmarks also download models.
-- For the AI model benchmarks (323 to 331): if a model's license on Hugging
+- Plenty of free disk space. Each benchmark installs its own software (its own
+  Python environment) the first time it runs, and checks for at least 20 GiB
+  free before it does. That check is per benchmark, not for the whole suite,
+  and the AI benchmarks also download models.
+- A machine where installing ROCm and one restart are acceptable: the first
+  run installs them.
+- For the AI model benchmarks (323 to 332): if a model's license on Hugging
   Face requires it, accept the license there and set a token first:
   `export HF_TOKEN=hf_...`
 
@@ -26,31 +29,55 @@ Use this bundle only on that platform. The others have their own bundle:
 apt-get update && apt-get install -y git tmux
 git clone --recurse-submodules https://github.com/garys-gpu-benchmarks/bundle-amd-ubuntu-2604 /opt/benchmarks
 cd /opt/benchmarks
-./run.sh list
+./run_benchmark_suite.sh --list
 ```
 
-`./run.sh list` should show all 32 benchmarks as `ready`.
+`./run_benchmark_suite.sh --list` should show all 32 benchmarks as `ready`.
 Do not use GitHub's **Download ZIP**: it leaves the benchmark folders empty.
 
-## Getting started: three quick benchmarks
+## Getting started
+
+### 1. A CPU benchmark (about a minute, no GPU software)
 
 ```bash
 cd /opt/benchmarks
-./run_benchmark_suite.sh -w 301,302,315 -p smoke
+./run_benchmark_suite.sh -w 307 -p smoke --show-output
 ```
 
-This runs the short `smoke` profile of three benchmarks:
+307 is STREAM, CPU memory bandwidth. It installs only a compiler and its own
+Python environment, not ROCm, and does not restart the machine. It ends
+with Copy, Scale, Add and Triad rates in GB/s. Smoke uses 4 threads; the
+`baseline` profile is the figure to quote for this machine. If this run
+passes, the bundle, the suite runner, the results and the runtime ledger all
+work.
+
+### 2. The GPU software and two quick GPU checks
+
+```bash
+./run_benchmark_suite.sh -w 301,302,314 -p smoke
+```
 
 | Benchmark | What it checks |
 |---|---|
-| 301 | the GPU software stack is installed and working |
-| 302 | GPU health |
-| 315 | GPU memory (HBM) bandwidth |
+| 301 | installs ROCm, then checks the installed GPU software (the long step) |
+| 302 | GPU health: the GPUs are visible, with temperature and link status |
+| 314 | copy bandwidth between the host and the GPU, measured at 256 MiB |
 
-The first run takes much longer than later ones: it installs ROCm and each
-benchmark's software. The install may restart the machine once. If it does,
-log in again after the restart, wait a few minutes for setup to finish on its
-own, and run the same command again.
+**Smoke is a wiring check.** It shows that each benchmark installs, runs and
+records its results. Most smoke runs use small sizes, so their numbers are not
+for reports: for example, the 315 (GPU memory bandwidth) smoke arrays fit in
+GPU cache and do not measure HBM. Quote `baseline` or `extended` results.
+
+The first GPU run takes much longer than later ones: 301 installs ROCm,
+and each benchmark installs its own software the first time. The install may
+restart the machine once. If it does:
+
+1. Log in again as root. Setup continues on its own after the restart.
+2. To watch it: `tail -f /opt/benchmarks/301-*/results/install_status.txt`
+   (Ctrl+C stops watching, not setup).
+3. Run the same command again. If it says setup is still running, wait a few
+   minutes and run it again. Benchmarks already installed are not installed
+   again.
 
 Each run prints a short block, and the suite ends with a pass/fail summary.
 The full output is in `/opt/benchmarks/benchmark_suite_log/`.
@@ -58,9 +85,23 @@ The full output is in `/opt/benchmarks/benchmark_suite_log/`.
 To run a single benchmark with its output on screen:
 
 ```bash
-./run.sh 305                # setup, then the smoke profile of benchmark 305
-./run.sh 305 --baseline     # the standard profile
+./run_benchmark_suite.sh -w 305 -p smoke --show-output      # benchmark 305, smoke profile
+./run_benchmark_suite.sh -w 305 -p baseline --show-output   # the standard profile
 ```
+
+## See your results
+
+`show_metrics.sh` prints one benchmark's runs from the runtime ledger: one row
+per run with its metrics, then the mean for each profile.
+
+```bash
+cd /opt/benchmarks
+./show_metrics.sh 307                # benchmark 307, every profile
+./show_metrics.sh 307 --baseline     # baseline runs only
+./show_metrics.sh --help             # all options
+```
+
+To copy the results to your laptop, see [Results](#results).
 
 ## Run everything
 
@@ -70,11 +111,12 @@ It takes many hours.
 ```bash
 tmux new -s bench
 cd /opt/benchmarks
-./run_benchmark_suite.sh
+./run_benchmark_suite.sh -p smoke,baseline,extended
 ```
 
 This runs all 32 benchmarks with the `smoke` profile, then all with
-`baseline`, then all with `extended`. Detach with **Ctrl+B** then **D**;
+`baseline`, then all with `extended`. Without `-p`, `./run_benchmark_suite.sh`
+runs the `smoke` profile only. Detach with **Ctrl+B** then **D**;
 reattach later with `tmux attach -t bench`.
 
 Run "Getting started" first on a new machine, so the one-time install (and any
@@ -82,12 +124,28 @@ restart) happens before the long run.
 
 | Option | What it does |
 |---|---|
-| `-p smoke` | profiles to run, in order (`smoke`, `baseline`, `extended`; comma-separated) |
+| `-p baseline` | profiles to run, in order (`smoke`, `baseline`, `extended`; comma-separated). Default: `smoke` |
 | `-w 301,307,321` | only these benchmarks; ranges work too: `-w 301-310` |
 | `-r 20` | repeat the whole set 20 times (soak test) |
 | `--fail-fast` | stop at the first failed run |
+| `--show-output` | show each run's full output on screen too (it always goes to the log) |
+| `--list` | list the benchmarks as `ready` or `not fetched`, then exit |
 | `-n` | show what would run, without running it |
 | `--help` | all options |
+
+## Results that are expected to be `na`
+
+A metric written as `na (reason)` was not measured on this machine; it is
+never an invented number. Read the reason before reporting a fault. These are
+expected:
+
+| Benchmark | Expected result |
+|---|---|
+| 316 | On a machine with one GPU, the bandwidth metrics are `na (requires at least two GPUs)` and the run still passes. |
+| 311 | Hardware counters are `na` with the reason when `perf` is not installed for the running kernel, or when `perf_event_paranoid` denies access. |
+| 306 | Measures a file (`data/fio_target.bin`) on the disk that holds the benchmark, not a raw NVMe device. |
+| 308 | Measures the loopback path (`127.0.0.1`), not a network card. |
+| 330, 331 | The `smoke` profile may use a stand-in server; only `baseline` and `extended` measure SGLang. |
 
 ## Results
 
@@ -97,9 +155,19 @@ restart) happens before the long run.
 | Full output of every run | `/opt/benchmarks/benchmark_suite_log/` |
 | Each benchmark's results | `/opt/benchmarks/<benchmark>/results/` (`raw/` and `parsed/`) |
 | One line per run (time, exit code) | `/var/opt/benchmarks/runtime_ledger.csv` |
+| One benchmark's runs and per-profile means | `./show_metrics.sh <benchmark>` |
+| Which release is installed | `git -C /opt/benchmarks describe --tags` |
 
-To copy everything to a Windows laptop, use `get_remote_info.sh` from
-[gpu-bench-suite](https://github.com/garys-gpu-benchmarks/gpu-bench-suite).
+To copy the ledger, every benchmark's `results/` and the suite logs to your
+laptop (Git Bash on Windows), use `get_remote_info.sh` from
+[gpu-bench-suite](https://github.com/garys-gpu-benchmarks/gpu-bench-suite). It writes
+`RUNTIME_LEDGERS/` and `DIRECTORIES/` in the folder you run it from:
+
+```bash
+git clone https://github.com/garys-gpu-benchmarks/gpu-bench-suite && cd gpu-bench-suite
+./scripts/get_remote_info.sh --host 203.0.113.10       # this machine's address; --port PORT if ssh is not on 22
+./scripts/show_metrics.sh 307 --host 203.0.113.10      # the same table, read over ssh
+```
 
 ## Update to a newer release
 
@@ -107,6 +175,9 @@ To copy everything to a Windows laptop, use `get_remote_info.sh` from
 cd /opt/benchmarks
 git pull && git submodule update --init --recursive
 ```
+
+Do not use `git submodule update --remote`: it moves the benchmarks off the
+release they were tested at.
 
 Copies made before v1.0.5 keep their benchmarks in a `benchmarks/` subfolder;
 delete those and clone again as shown under Install.

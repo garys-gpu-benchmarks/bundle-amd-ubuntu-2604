@@ -1,128 +1,96 @@
 [submodule "301-sys-bench-amd-rocm-stack-validation-ubu2604"]
 	path = 301-sys-bench-amd-rocm-stack-validation-ubu2604
 	url = ../301-sys-bench-amd-rocm-stack-validation-ubu2604.git
-	branch = main
 [submodule "302-sys-bench-amd-rocm-health-validation-ubu2604"]
 	path = 302-sys-bench-amd-rocm-health-validation-ubu2604
 	url = ../302-sys-bench-amd-rocm-health-validation-ubu2604.git
-	branch = main
 [submodule "303-sys-bench-amd-system-stress-stability-ubu2604"]
 	path = 303-sys-bench-amd-system-stress-stability-ubu2604
 	url = ../303-sys-bench-amd-system-stress-stability-ubu2604.git
-	branch = main
 [submodule "304-gpu-bench-amd-sdc-ecc-integrity-ubu2604"]
 	path = 304-gpu-bench-amd-sdc-ecc-integrity-ubu2604
 	url = ../304-gpu-bench-amd-sdc-ecc-integrity-ubu2604.git
-	branch = main
 [submodule "305-gpu-bench-amd-pytorch-tensor-correctness-ubu2604"]
 	path = 305-gpu-bench-amd-pytorch-tensor-correctness-ubu2604
 	url = ../305-gpu-bench-amd-pytorch-tensor-correctness-ubu2604.git
-	branch = main
 [submodule "306-sys-bench-amd-fio-nvme-sweep-ubu2604"]
 	path = 306-sys-bench-amd-fio-nvme-sweep-ubu2604
 	url = ../306-sys-bench-amd-fio-nvme-sweep-ubu2604.git
-	branch = main
 [submodule "307-sys-bench-amd-stream-ddr5-bandwidth-ubu2604"]
 	path = 307-sys-bench-amd-stream-ddr5-bandwidth-ubu2604
 	url = ../307-sys-bench-amd-stream-ddr5-bandwidth-ubu2604.git
-	branch = main
 [submodule "308-sys-bench-amd-iperf3-network-performance-ubu2604"]
 	path = 308-sys-bench-amd-iperf3-network-performance-ubu2604
 	url = ../308-sys-bench-amd-iperf3-network-performance-ubu2604.git
-	branch = main
 [submodule "309-sys-bench-amd-multichase-numa-latency-ubu2604"]
 	path = 309-sys-bench-amd-multichase-numa-latency-ubu2604
 	url = ../309-sys-bench-amd-multichase-numa-latency-ubu2604.git
-	branch = main
 [submodule "310-sys-bench-amd-numa-cache-performance-ubu2604"]
 	path = 310-sys-bench-amd-numa-cache-performance-ubu2604
 	url = ../310-sys-bench-amd-numa-cache-performance-ubu2604.git
-	branch = main
 [submodule "311-sys-bench-amd-linux-perf-pmu-ubu2604"]
 	path = 311-sys-bench-amd-linux-perf-pmu-ubu2604
 	url = ../311-sys-bench-amd-linux-perf-pmu-ubu2604.git
-	branch = main
 [submodule "312-sys-bench-amd-lmbench-microbench-suite-ubu2604"]
 	path = 312-sys-bench-amd-lmbench-microbench-suite-ubu2604
 	url = ../312-sys-bench-amd-lmbench-microbench-suite-ubu2604.git
-	branch = main
 [submodule "313-sys-bench-amd-gups-random-memory-ubu2604"]
 	path = 313-sys-bench-amd-gups-random-memory-ubu2604
 	url = ../313-sys-bench-amd-gups-random-memory-ubu2604.git
-	branch = main
 [submodule "314-gpu-bench-amd-hipmemcpy-transfer-bandwidth-ubu2604"]
 	path = 314-gpu-bench-amd-hipmemcpy-transfer-bandwidth-ubu2604
 	url = ../314-gpu-bench-amd-hipmemcpy-transfer-bandwidth-ubu2604.git
-	branch = main
 [submodule "315-gpu-bench-amd-babelstream-hbm-bandwidth-ubu2604"]
 	path = 315-gpu-bench-amd-babelstream-hbm-bandwidth-ubu2604
 	url = ../315-gpu-bench-amd-babelstream-hbm-bandwidth-ubu2604.git
-	branch = main
 [submodule "316-gpu-bench-amd-rccl-bandwidth-test-ubu2604"]
 	path = 316-gpu-bench-amd-rccl-bandwidth-test-ubu2604
 	url = ../316-gpu-bench-amd-rccl-bandwidth-test-ubu2604.git
-	branch = main
 [submodule "317-gpu-bench-amd-gemm-rocblas-micro-ubu2604"]
 	path = 317-gpu-bench-amd-gemm-rocblas-micro-ubu2604
 	url = ../317-gpu-bench-amd-gemm-rocblas-micro-ubu2604.git
-	branch = main
 [submodule "318-gpu-bench-amd-miopen-convolution-micro-ubu2604"]
 	path = 318-gpu-bench-amd-miopen-convolution-micro-ubu2604
 	url = ../318-gpu-bench-amd-miopen-convolution-micro-ubu2604.git
-	branch = main
 [submodule "319-gpu-bench-amd-torch-micro-suite-ubu2604"]
 	path = 319-gpu-bench-amd-torch-micro-suite-ubu2604
 	url = ../319-gpu-bench-amd-torch-micro-suite-ubu2604.git
-	branch = main
 [submodule "320-gpu-bench-amd-linpack-rochpl-fp64-ubu2604"]
 	path = 320-gpu-bench-amd-linpack-rochpl-fp64-ubu2604
 	url = ../320-gpu-bench-amd-linpack-rochpl-fp64-ubu2604.git
-	branch = main
 [submodule "321-gpu-bench-amd-resnet50-pytorch-training-ubu2604"]
 	path = 321-gpu-bench-amd-resnet50-pytorch-training-ubu2604
 	url = ../321-gpu-bench-amd-resnet50-pytorch-training-ubu2604.git
-	branch = main
 [submodule "322-gpu-bench-amd-resnet50-pytorch-inference-ubu2604"]
 	path = 322-gpu-bench-amd-resnet50-pytorch-inference-ubu2604
 	url = ../322-gpu-bench-amd-resnet50-pytorch-inference-ubu2604.git
-	branch = main
 [submodule "323-gpu-bench-amd-bert-base-inference-ubu2604"]
 	path = 323-gpu-bench-amd-bert-base-inference-ubu2604
 	url = ../323-gpu-bench-amd-bert-base-inference-ubu2604.git
-	branch = main
 [submodule "324-gpu-bench-amd-sdxl-diffusers-latency-ubu2604"]
 	path = 324-gpu-bench-amd-sdxl-diffusers-latency-ubu2604
 	url = ../324-gpu-bench-amd-sdxl-diffusers-latency-ubu2604.git
-	branch = main
 [submodule "325-gpu-bench-amd-distilbert-hf-classification-ubu2604"]
 	path = 325-gpu-bench-amd-distilbert-hf-classification-ubu2604
 	url = ../325-gpu-bench-amd-distilbert-hf-classification-ubu2604.git
-	branch = main
 [submodule "326-gpu-bench-amd-jax-xla-forwardpass-ubu2604"]
 	path = 326-gpu-bench-amd-jax-xla-forwardpass-ubu2604
 	url = ../326-gpu-bench-amd-jax-xla-forwardpass-ubu2604.git
-	branch = main
 [submodule "327-gpu-bench-amd-vllm-kvcache-stress-ubu2604"]
 	path = 327-gpu-bench-amd-vllm-kvcache-stress-ubu2604
 	url = ../327-gpu-bench-amd-vllm-kvcache-stress-ubu2604.git
-	branch = main
 [submodule "328-gpu-bench-amd-vllm-throughput-latency-ubu2604"]
 	path = 328-gpu-bench-amd-vllm-throughput-latency-ubu2604
 	url = ../328-gpu-bench-amd-vllm-throughput-latency-ubu2604.git
-	branch = main
 [submodule "329-gpu-bench-amd-vllm-mistral-rocm-ubu2604"]
 	path = 329-gpu-bench-amd-vllm-mistral-rocm-ubu2604
 	url = ../329-gpu-bench-amd-vllm-mistral-rocm-ubu2604.git
-	branch = main
 [submodule "330-gpu-bench-amd-sglang-prompt-response-ubu2604"]
 	path = 330-gpu-bench-amd-sglang-prompt-response-ubu2604
 	url = ../330-gpu-bench-amd-sglang-prompt-response-ubu2604.git
-	branch = main
 [submodule "331-gpu-bench-amd-sglang-serving-latency-ubu2604"]
 	path = 331-gpu-bench-amd-sglang-serving-latency-ubu2604
 	url = ../331-gpu-bench-amd-sglang-serving-latency-ubu2604.git
-	branch = main
 [submodule "332-gpu-bench-amd-rag-faiss-end2end-ubu2604"]
 	path = 332-gpu-bench-amd-rag-faiss-end2end-ubu2604
 	url = ../332-gpu-bench-amd-rag-faiss-end2end-ubu2604.git
-	branch = main
