@@ -1,7 +1,7 @@
 # AMD ROCm - Ubuntu 26.04 benchmark bundle
 
 32 system and GPU benchmarks for AMD GPU machines running Ubuntu 26.04,
-each pinned to its tested v1.0.17 release.
+each pinned to its tested v1.0.18 release.
 
 Use this bundle only on that platform. The others have their own bundle:
 [AMD 24.04](https://github.com/garys-gpu-benchmarks/bundle-amd-ubuntu-2404) ·
@@ -87,9 +87,10 @@ In quiet mode, watch progress from a second window with
 | 302 | GPU health: the GPUs are visible, with temperature and link status |
 | 314 | copy bandwidth between the host and the GPU, measured at 256 MiB |
 
-**The machine restarts once.** Installing ROCm on Ubuntu 26.04 restarts the
-machine, which closes your connection. With `--show-output`, the output ends
-like this (in quiet mode, only the last line appears):
+**The machine restarts once.** The Ubuntu 26.04 image cannot start the MI300X
+until ROCm's firmware is installed, so the first install ends with one restart,
+which closes your connection. With `--show-output`, the output ends like this
+(in quiet mode, only the last line appears):
 
 ```text
 Successfully installed PyYAML-6.0.3
