@@ -88,7 +88,7 @@ In quiet mode, watch progress from a second window with
 | 314 | copy bandwidth between the host and the GPU, measured at 256 MiB |
 
 **The machine restarts once.** Installing ROCm on Ubuntu 26.04 restarts the
-machine, which closes your connection. With , the output ends
+machine, which closes your connection. With `--show-output`, the output ends
 like this (in quiet mode, only the last line appears):
 
 ```text
